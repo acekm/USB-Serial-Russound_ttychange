@@ -8,6 +8,6 @@ docker run -itd \
   --device /dev/ttyUSB0 \
   -p 7777:7777 \
   --name tcp_serial_redirect \
-  tcp_serial_redirect \
+  ghcr.io/kevinreedy/tcp_serial_redirect \
   python tcp_serial_redirect.py --rts 1 --dtr 1 /dev/ttyUSB0 19200
 ```
