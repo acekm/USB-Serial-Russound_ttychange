@@ -1,9 +1,15 @@
-FROM python:3
+# Use a minimal Python image as a base
+FROM python:3.9-slim
 
-WORKDIR /usr/src/app
+# Set the working directory
+WORKDIR /app
 
-RUN /usr/local/bin/pip install --no-cache-dir -r pyserial
+# Copy the requirements file and install the dependencies
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
-COPY tcp_serial_redirect.py ./
+# Copy the Python script into the container
+COPY tcp_serial_redirect.py /app/
 
-CMD ["python", "tcp_serial_redirect.py"]
+# Set up the device and run the command
+CMD ["python", "tcp_serial_redirect.py", "--rts", "1", "--dtr", "1", "/dev/ttyUSB0", "19200"]
