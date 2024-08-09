@@ -2,8 +2,7 @@ FROM python:3
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt ./
-RUN /usr/local/bin/pip install --no-cache-dir -r requirements.txt
+RUN /usr/local/bin/pip install --no-cache-dir -r pyserial
 
 COPY tcp_serial_redirect.py ./
 
