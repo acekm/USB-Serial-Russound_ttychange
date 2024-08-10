@@ -2,6 +2,8 @@
 
 This Home Assistant add-on provides a simple way to redirect serial communication over TCP using a custom Python script. It is particularly useful for situations where you need to make a serial device (e.g., connected via `/dev/ttyUSB0`) accessible over the network.
 
+My use case was to connect a Russound CAM6.6 to a USB to Serial adapter to my HA Yellow directly.
+
 ## Features
 
 - Redirects serial communication from `/dev/ttyUSB0` to a TCP port (`7777`).
