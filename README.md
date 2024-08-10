@@ -39,6 +39,7 @@ This add-on redirects serial communication from a device connected to `/dev/ttyU
 You can access the redirected serial data by connecting to your Home Assistant instance's IP on port `7777` using any TCP client.
 
 ### Russoiund Config to Connect to USB to Serial Adapter
+```yaml
 media_player:
   - platform: russound_rnet
     host: 127.1.1.1
@@ -64,4 +65,3 @@ media_player:
       - name: Sonos Connect
       - name: Sonos Port
       - name: Computer Audio
-
