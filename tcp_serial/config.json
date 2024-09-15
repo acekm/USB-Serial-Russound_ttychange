@@ -1,6 +1,6 @@
 {
     "name": "TCP Serial Redirect",
-    "version": "1.8",
+    "version": "1.9",
     "slug": "tcp_serial_redirect",
     "description": "An add-on to redirect serial communication over TCP using Kevin Reedy's tcp_serial_redirect.  I use this to connect my Home assistant server to my Russound Amp to control it using a USB to serial cable directly connected to the HA server.  https://github.com/breniii/USB-Serial-Russound/blob/main/README.md",
     "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
