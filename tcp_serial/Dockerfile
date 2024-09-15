@@ -12,4 +12,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY tcp_serial_redirect.py /app/
 
 # Set up the device and run the command
-CMD ["python", "tcp_serial_redirect.py", "-v" "--rts", "1", "--dtr", "1", "/dev/ttyUSB0", "19200"]
+CMD ["python", "tcp_serial_redirect.py", "--verbose" "--rts", "1", "--dtr", "1", "/dev/ttyUSB0", "19200"]
