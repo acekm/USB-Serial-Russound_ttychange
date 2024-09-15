@@ -24,6 +24,8 @@ class SerialToNet(serial.threaded.Protocol):
 
     def data_received(self, data):
         if self.socket is not None:
+            # Log serial data received and being sent over the socket
+            sys.stderr.write('Serial -> TCP: {}\n'.format(data.hex()))
             self.socket.sendall(data)
 
 
@@ -178,15 +180,10 @@ it waits for the next connect.
                     continue
                 sys.stderr.write('Connected\n')
                 client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_NODELAY, 1)
-                #~ client_socket.settimeout(5)
             else:
                 sys.stderr.write('Waiting for connection on {}...\n'.format(args.localport))
                 client_socket, addr = srv.accept()
                 sys.stderr.write('Connected by {}\n'.format(addr))
-                # More quickly detect bad clients who quit without closing the
-                # connection: After 1 second of idle, start sending TCP keep-alive
-                # packets every 1 second. If 3 consecutive keep-alive packets
-                # fail, assume the client is gone and close the connection.
                 try:
                     client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPIDLE, 1)
                     client_socket.setsockopt(socket.IPPROTO_TCP, socket.TCP_KEEPINTVL, 1)
@@ -203,12 +200,13 @@ it waits for the next connect.
                         data = client_socket.recv(1024)
                         if not data:
                             break
+                        # Log data received from TCP and sent to serial
+                        sys.stderr.write('TCP -> Serial: {}\n'.format(data.hex()))
                         ser.write(data)                 # get a bunch of bytes and send them
                     except socket.error as msg:
                         if args.develop:
                             raise
                         sys.stderr.write('ERROR: {}\n'.format(msg))
-                        # probably got disconnected
                         break
             except KeyboardInterrupt:
                 intentional_exit = True
