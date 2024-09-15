@@ -13,6 +13,7 @@
       "7777/tcp": 7777
     },
     "map": ["config:rw", "ssl", "share", "backup"],
-    "host_network": false
+    "host_network": false,
+    "icon": "/images/icon.png"
   }
   
