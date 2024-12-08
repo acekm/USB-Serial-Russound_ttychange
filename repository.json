@@ -1,6 +1,6 @@
 {
     "name": "USB Serial adapter to Net for Russound controls on Home assistant",
-    "url": "https://github.com/breniii/USB-Serial-Russound/",
-    "maintainer": "breniii",
+    "url": "https://github.com/acekm/USB-Serial-Russound_ttychange/",
+    "maintainer": "acekm",
     "add-ons": []
   }
