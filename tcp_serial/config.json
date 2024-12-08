@@ -8,7 +8,7 @@
     "boot": "auto",
     "options": {},
     "schema": {},
-    "devices": ["/dev/ttyUSB0:/dev/ttyUSB0:rwm"],
+    "devices": ["/dev/ttyUSB1:/dev/ttyUSB1:rwm"],
     "ports": {
       "7777/tcp": 7777
     },
